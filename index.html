@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 2</title>
+</head>
+
+<body>
+    <svg id="svg1" width="1400" height="700">
+        <defs>
+            <filter id="shadow">
+                <feDropShadow dx="15" dy="15" stdDeviation="10" />
+                <!-- <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" />
+                <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+                <feBlend in="SourceGraphic" in2="blurOut" mode="normal" /> -->
+            </filter>
+            <filter id="morph">
+                <feMorphology operator="dilate" radius="1" />
+            </filter>
+            <filter id="colorMatrix">
+                <!-- <feColorMatrix in="SourceGraphic" type="saturate" values="0.2" /> -->
+                <feColorMatrix in="SourceGraphic" type="hueRotate" values="180" />
+            </filter>
+
+        </defs>
+
+        <image href="images/metroid.jfif" width="300" height="200" style="filter:url(#shadow);" />
+        <image href="images/metroid.jfif" x="400" width="300" height="200" filter="url(#morph)" />
+        <image href="images/shield.png" x="800" width="200" hieght="250" filter="url(#colorMatrix)" />
+
+
+    </svg>
+</body>
+
+</html>
